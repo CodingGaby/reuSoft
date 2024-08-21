@@ -1,4 +1,38 @@
-<h2 class="text-white font-bold text-4xl" id="demo"></h2>
+---
+import '@fontsource/space-mono/700.css';
+---
+<span id="demo" class="text-white text-5xl"></span>
+<div id="container" class="text-white grid auto-cols-max grid-flow-col gap-5 text-center">
+  <div class="bg-neutral rounded-md text-neutral-content flex flex-col p-2 border border-[#f4427d] bg-black">
+    <span class="text-5xl">
+      <span id="days"></span>
+    </span>
+    Días
+  </div>
+  <div class="bg-neutral rounded-md text-neutral-content flex flex-col p-2 border border-[#f4427d] bg-black">
+    <span class="text-5xl">
+      <span id="hours"></span>
+    </span>
+    Horas
+  </div>
+  <div class="bg-neutral rounded-md text-neutral-content flex flex-col p-2 border border-[#f4427d] bg-black">
+    <span class="text-5xl">
+      <span id="mins"></span>
+    </span>
+    Minutos
+  </div>
+  <div class="bg-neutral rounded-md text-neutral-content flex flex-col p-2 border border-[#f4427d] bg-black">
+    <span class="text-5xl">
+      <span id="secs"></span>
+    </span>
+    Segundos
+  </div>
+</div>
+<style>
+  div, span {
+    font-family: 'Space Mono', monospace;
+  }
+</style>
 <script type="module">
 // Set the date we're counting down to
 var countDownDate = new Date(2024, 7, 30, 13, 0, 0).getTime();
@@ -18,14 +52,18 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  // Display the result in the elements
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("mins").innerHTML = minutes;
+  document.getElementById("secs").innerHTML = seconds;
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("demo").innerHTML = "¡Comienza!";
+
+    document.getElementById("container").classList.add("hidden")
   }
 }, 1000);
 </script>

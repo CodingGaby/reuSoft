@@ -1,0 +1,24 @@
+---
+import Countdown from '../components/Countdown.astro'
+import LinkBtn from '../components/LinkBtn.astro'
+---
+<section class="py-24 flex items-center min-h-screen justify-center">
+  <div class="mx-auto max-w-[43rem]">
+    <div class="text-center">
+      <p class="text-lg leading-relaxed text-slate-400">Reunión de</p>
+      <h1 class="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-white">Ingeniería de Software</h1>
+      <p class="mt-3 text-lg leading-relaxed text-slate-400">- Conoce a tus compañeros de carrera en la UMAD -</p>
+    </div>
+
+    <div class="mt-6 flex items-center flex-col sm:flex-row justify-center gap-4">
+      <!---Boton prim-->
+      <LinkBtn href="/confirm">
+        Confirma tu asistencia
+      </LinkBtn>
+      <a href="#details" class="transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-200 hover:text-slate-900 transition-colors hover:bg-slate-50"> Detalles </a>
+    </div>
+    <div class="flex justify-center items-center py-8 ">
+      <Countdown/>
+    </div>
+  </div>
+</section>
