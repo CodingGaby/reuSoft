@@ -1,0 +1,16 @@
+
+<div class="md:flex md:items-start md:-mx-4">
+  <span class="inline-block p-2 bg-black border border-[#f4427d] rounded-lg md:mx-4">
+    <!--Icon-->
+    <slot name="Icon"/> 
+  </span>
+  <div class="mt-4 md:mx-4 md:mt-0">
+    <h1 class="text-2xl font-semibold text-white capitalize">
+      <slot name="title"/>
+    </h1>
+    <p class="mt-3 text-gray-400">
+      <slot/>
+    </p>
+  </div>
+</div>
+

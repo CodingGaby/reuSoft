@@ -6,7 +6,7 @@ interface Props {
 const { href } = Astro.props
 ---
 
-<a href={href} class="group relative inline-flex h-12 items-center justify-center rounded-md bg-[#f4427d] px-5 py-3 font-medium text-white hover:bg-[#e41e56]">
+<a href={href} class="group relative inline-flex h-12 items-center justify-center rounded-md bg-[#f4427d] px-5 py-3 font-medium text-white hover:bg-[#e41e56] transition-all duration-200 ease-in-out hover:scale-110">
   <span>
     <slot/>
   </span>
