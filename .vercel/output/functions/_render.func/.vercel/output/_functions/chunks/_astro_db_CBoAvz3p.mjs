@@ -1,0 +1,7 @@
+import { createRemoteDatabaseClient, asDrizzleTable } from '@astrojs/db/runtime';
+import '@astrojs/db/dist/runtime/virtual.js';
+
+const db = await createRemoteDatabaseClient(process.env.ASTRO_STUDIO_APP_TOKEN, "https://db.services.astro.build");
+const Assistant = asDrizzleTable("Assistant", { "columns": { "id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Assistant", "primaryKey": true } }, "name": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "name", "collection": "Assistant", "primaryKey": false, "optional": false } }, "enrollment": { "type": "number", "schema": { "unique": true, "deprecated": false, "name": "enrollment", "collection": "Assistant", "primaryKey": false, "optional": false } }, "email": { "type": "text", "schema": { "unique": true, "deprecated": false, "name": "email", "collection": "Assistant", "primaryKey": false, "optional": false } }, "social": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "social", "collection": "Assistant", "primaryKey": false, "optional": true } }, "_createdAt": { "type": "date", "schema": { "optional": false, "unique": false, "deprecated": false, "name": "_createdAt", "collection": "Assistant", "default": { "__serializedSQL": true, "sql": "CURRENT_TIMESTAMP" } } } }, "deprecated": false, "indexes": {} }, false);
+
+export { Assistant as A, db as d };
