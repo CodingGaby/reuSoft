@@ -1,0 +1,17 @@
+---
+import SubmitBtn from "../buttons/SubmitBtn.astro"
+---
+<div class="flex flex-col">
+  <form method="POST">
+    <slot/>
+    <!--Submit BTN -->
+    <SubmitBtn>
+      Confirmar
+    </SubmitBtn>
+  </form>
+</div>
+<style>
+  div{
+    font-family: 'Space Mono', monospace;
+  }
+</style>
