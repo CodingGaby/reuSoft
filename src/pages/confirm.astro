@@ -16,8 +16,6 @@ if (Astro.request.method === 'POST') {
     const social = formData.get('social');
     const id = crypto.randomUUID();
     
-    console.log({ name, enrollment, email, social });  // Log para ver los valores obtenidos
-    
     let enrollmentNumber; 
     
     if (typeof enrollment === "string") {
@@ -42,12 +40,21 @@ if (Astro.request.method === 'POST') {
         } else {
           console.error('Se ha producido un error inesperado');
         }
+        Astro.response.status = 500;
+        Astro.response.statusText = 'Error interno del servidor';
       }
+    } else {
+      console.error('Datos inválidos');
+      Astro.response.status = 400;
+      Astro.response.statusText = 'Datos Invalidos';
     }
   } catch (error) {
     console.error("Error al procesar la solicitud:", error);
+    Astro.response.status = 500;
+    Astro.response.statusText = 'Error interno del servidor';
   }
 }
+
 ---
 
 <Layout title='Confirmación | ReuSoft 2024'>
